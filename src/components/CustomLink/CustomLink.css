@@ -1,0 +1,31 @@
+.containerLink {
+    width: 80%;
+    margin: 0 auto 20% auto;
+    position: relative;
+}
+.containerLink__btn{
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    font-weight: 900;
+    font-size: 20px;
+    transition: all .3s;
+    
+}
+.containerLink__btn:hover{
+    color: red;
+}
+.containerLink__a {
+    display: block;
+    font-size: 18px;
+    line-height: 100px;
+    color: black;
+    border: 1px solid #FFFBD6;
+    border-radius: 6px;
+    background-color: #FFFBD6;
+}
+
+.active {
+    background: #FEE600;
+    border-color: #FEE600;
+}

@@ -1,0 +1,38 @@
+.BtnAddCategory{
+    background-color: #93EC91;
+    border-radius: 6px;
+    width: 80%;
+    padding: 5px 2px;
+    text-align: center;
+    font-size: 12px;
+}
+.BtnAddCategory span{
+    font-size: 25px;
+}
+
+.inputAddCategory{
+    background-color:#FFFBD6;;
+    width: 80%;
+    margin: 0 auto;
+}
+.inputAddCategory__input{
+    border: 1px solid #FEE600;
+    border-radius: 6px;
+    width: 100%;
+    padding: 3px;
+    font-size: 14px;
+    margin-bottom: 7px;
+
+}
+.inputAddCategory__btn{
+    font-size: 30px;
+    padding: 0 8px;
+    display: flex;
+    justify-content: space-between;
+}
+.inputAddCategory__btn button:nth-child(1){
+    color: #bd3131;;
+}
+.inputAddCategory__btn button:nth-child(2){
+    color: #1eb047;;
+}
