@@ -1,12 +1,17 @@
-import { Link, useMatch } from "react-router-dom";
+import { Link, useMatch, useNavigate, useLocation } from "react-router-dom";
 import './CustomLink.css'
 
 function CustomLink( { children, to, category, setCategory } ) {
-    const match = useMatch(to)
+    const navigate = useNavigate()
+    const location = useLocation()
+    const match = useMatch( {
+        path: to,
+        end: to.length === 1
+    } )
     const myClass =  match? "containerLink__a active" : "containerLink__a"
-
     const removeCustomLink = () => {
         setCategory(link => link.filter(elem => elem !== category))
+        if(location.state === category) navigate("/PersonalTasks", {state : "Личные"})
     }
     
     function BtnRemoveCustomLink() {
@@ -18,16 +23,17 @@ function CustomLink( { children, to, category, setCategory } ) {
     }
     return (
         <div className="containerLink">
-            <BtnRemoveCustomLink/>
+            <BtnRemoveCustomLink />
             <Link
-            to={to}
-            className={myClass}
-        >
-            {children}
+                to={to}
+                className={myClass}
+                state={category}
+            >
+                {children}
 
-        </Link>
+            </Link>
         </div>
-        
+
     )
 }
 export default CustomLink

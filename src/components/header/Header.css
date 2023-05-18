@@ -1,12 +1,12 @@
 .header{
     background-color: white;
     display: grid;
-    grid-template-columns: repeat(3, 33%);
+    grid-template-columns: repeat(3, 30%);
     text-align: center;
     line-height: 75px;
-}
-.header__mapping{
-
+    margin-left: 10%;
+    position: fixed;
+    width: 100%;
 }
 .header__mapping__title{
 margin-right: 10px;
@@ -43,4 +43,24 @@ margin-right: 10px;
     position: absolute;
     top: calc(50% - 7px);
     left: 15px;
+}
+
+.header__btnCreateTask{
+background-color: #93EC91;
+/* margin-top: 12.5px; */
+margin: 12.5px auto 0 auto;
+height: 50px;
+width: 80%;
+border-radius: 6px;
+font-size: 18px;
+font-weight: 500;
+position: relative;
+}
+.header__btnCreateTask::before{
+    content: "+";
+    position: absolute;
+    left: 18%;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 30px;
 }

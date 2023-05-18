@@ -1,0 +1,42 @@
+.CreateTask__h2{
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.CreateTask__taskTitle,
+.CreateTask__taskText{
+    display: block;
+    margin-top: 2%;
+    text-align: center;
+    font-size: 22px;
+}
+.CreateTask__taskTitle-input,
+.CreateTask__taskTitle-textarea{
+    display: block;
+    margin: 1% auto 0 auto;
+    border: 1px solid #FEE600;
+    border-radius: 6px;
+    font-size: 18px;
+    width: 50%;
+    padding: 5px;
+    resize: none;
+}
+.CreateTask__btns{
+    /* background-color: burlywood; */
+    margin: 2% auto;
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+}
+.CreateTask__btns button{
+    line-height: 50px;
+    width: 20%;
+    border-radius: 6px;
+}
+.CreateTask__btns-goBack{
+    background-color: #F79999;
+}
+.CreateTask__btns-submit{
+    background-color: #93EC91;
+}

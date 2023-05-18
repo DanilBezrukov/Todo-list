@@ -15,7 +15,14 @@ function BtnAddCategory( {setCategory} ){
         const value = myInput.current.value.trim()
         if(value.length < 3) return
         const nameCategory = value[0].toUpperCase() + value.slice(1)
-        setCategory( state => [...state, nameCategory] )
+
+        setCategory( state => {
+            if(state.includes(nameCategory)) return state
+            return(
+                [...state, nameCategory]
+            )
+        } )
+
         setCategoryAddFlag(state => !state)
         
     }, [setCategory])

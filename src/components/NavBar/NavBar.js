@@ -1,5 +1,3 @@
-// import { NavLink } from "react-router-dom";
-// import { useState } from "react";
 import BtnAddCategory from "../BtnAddCategory/BtnAddCategory";
 import CustomLink from "../CustomLink/CustomLink";
 import './NavBar.css'
@@ -10,7 +8,7 @@ function NavBar( {category, setCategory} ) {
             <h2 className="NavBar__h2">Категория</h2>
 
             <div className="NavBar__container">
-                <CustomLink to="PersonalTasks">Личные</CustomLink> 
+                <CustomLink to="PersonalTasks" category={"Личные"}>Личные</CustomLink> 
                 {
                     category.map( (elem, i) => {
                         return(
