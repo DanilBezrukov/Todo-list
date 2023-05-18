@@ -6,7 +6,7 @@ function Header() {
     const navigate = useNavigate()
 
     const createTask = () => {
-        navigate(`${location.pathname}/createTask`, { replace: true, state: location.state })
+        navigate(`${location.pathname}/createTask`, { state: location.state })
     }
 
     return (

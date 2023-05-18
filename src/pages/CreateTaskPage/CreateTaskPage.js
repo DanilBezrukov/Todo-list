@@ -1,21 +1,45 @@
 import { useEffect } from "react"
 import { useLocation, useNavigate } from "react-router-dom"
-import "./CreateTask.css"
-function CreateTask () {
+import "./CreateTaskPage.css"
+
+function CreateTaskPage ( {setTaskStorage} ) {
     const location = useLocation()
     const navigate = useNavigate()
+    const nameCategory = location.state
     useEffect( () =>{
-        if(!location.state) navigate("/PersonalTasks")
+        if(!nameCategory) navigate("/PersonalTasks")
     } )
+
+    function getFormsData(event) {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+        const data = {
+            taskTitle: formData.get("taskTitle"),
+            taskText: formData.get("taskText"),
+            date: new Date(),
+            flag: false
+        }
+        
+        setTaskStorage( state => {
+            const tasks = state[nameCategory] || []
+            const newTasks = [...tasks, data]
+            
+            return {
+                ...state,
+                [nameCategory] : newTasks
+            }
+        } )
+    }
     return(
         <div className="CreateTask">
-            <h2 className="CreateTask__h2">Добавить задачу в категорию: "{location.state}"</h2>
+            <h2 className="CreateTask__h2">Добавить задачу в категорию: "{nameCategory}"</h2>
             
-            <form action="">
+            <form action="" onSubmit={getFormsData}>
                 <label className="CreateTask__taskTitle">
                     Заголовок:
                     <input 
                     type="text" 
+                    name="taskTitle"
                     placeholder="Введите заголовок задачи..."
                     className="CreateTask__taskTitle-input"
                     required 
@@ -24,7 +48,8 @@ function CreateTask () {
 
                 <label className="CreateTask__taskText">
                     Текст задачи:
-                    <textarea name="" 
+                    <textarea 
+                    name="taskText" 
                     placeholder="Опишите вашу задачу..." 
                     className="CreateTask__taskTitle-textarea"
                     rows="4"
@@ -34,7 +59,7 @@ function CreateTask () {
                 </label>
 
                 <div className="CreateTask__btns">
-                    <button className="CreateTask__btns-goBack">Отмена</button>
+                    <button type="button" className="CreateTask__btns-goBack">Отмена</button>
                     <button type="submit" className="CreateTask__btns-submit">Сохранить</button>
                 </div>
             </form>
@@ -42,4 +67,4 @@ function CreateTask () {
         </div>
     )
 }
-export default CreateTask
+export default CreateTaskPage

@@ -12,8 +12,8 @@ function NavBar( {category, setCategory} ) {
                 {
                     category.map( (elem, i) => {
                         return(
-                            <CustomLink to={`CustomTasks${i + 1}`}  
-                            key={`CustomTasks${i + 1}`} 
+                            <CustomLink to={`CustomCategory${i + 1}`}  
+                            key={`CustomCategory${i + 1}`} 
                             category={elem}
                             setCategory={setCategory}
                             >

@@ -1,7 +1,7 @@
 import { Routes, Route, Navigate } from "react-router-dom"
 import Layout from '../components/Layout';
 import TodoPage from "../pages/TodoPage";
-import CreateTask from "../components/CreateTask/CreateTask";
+import CreateTaskPage from "../pages/CreateTaskPage/CreateTaskPage";
 import { useState } from "react";
 
 function MyRoutes(){
@@ -9,26 +9,28 @@ function MyRoutes(){
     const [taskStorage, setTaskStorage] = useState( {
         "Личные" : [],
     } )
-
+    
     return(
         <Routes>
             <Route path="/" element={
                 <Layout 
                 category={category} 
-                setCategory={setCategory}/>
+                setCategory={setCategory}
+                taskStorage={taskStorage}
+                />
             }>
                 <Route path="PersonalTasks" element={<TodoPage tasks={ taskStorage["Личные"] }/>}/>
                 {
                     category.map( (elem, i) => {
                         return(
-                            <Route path={`CustomTasks${i + 1}`} 
-                            key={`CustomTasks${i + 1}`}
+                            <Route path={`CustomCategory${i + 1}`} 
+                            key={`CustomCategory${i + 1}`}
                             element={<TodoPage tasks={ taskStorage[elem] } />}
                             />
                         )
                     } )
                 }
-                <Route path="/:tasks/createTask" element={<CreateTask setTaskStorage={setTaskStorage}/>}/>
+                <Route path="/:tasks/createTask" element={<CreateTaskPage setTaskStorage={setTaskStorage}/>}/>
                 <Route path="/" element={<Navigate to='PersonalTasks' state={"Личные"} replace/>}/>
                 <Route path="*" element={<Navigate to='PersonalTasks' state={"Личные"} replace/>}/>
             </Route>
