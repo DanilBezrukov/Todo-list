@@ -1,3 +1,6 @@
+.CreateTask{
+    padding-top: 80px;
+}
 .CreateTask__h2{
     text-align: center;
     font-size: 25px;
@@ -22,8 +25,11 @@
     padding: 5px;
     resize: none;
 }
+.CreateTask__taskTitle-input:focus,
+.CreateTask__taskTitle-textarea:focus{
+    outline: 1px solid #FEE600;
+}
 .CreateTask__btns{
-    /* background-color: burlywood; */
     margin: 2% auto;
     width: 50%;
     display: flex;

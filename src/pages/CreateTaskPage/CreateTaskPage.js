@@ -1,14 +1,10 @@
-import { useEffect } from "react"
 import { useLocation, useNavigate } from "react-router-dom"
 import "./CreateTaskPage.css"
 
 function CreateTaskPage ( {setTaskStorage} ) {
     const location = useLocation()
     const navigate = useNavigate()
-    const nameCategory = location.state
-    useEffect( () =>{
-        if(!nameCategory) navigate("/PersonalTasks")
-    } )
+    const nameCategory = location.state ?? "Личные"
 
     function getFormsData(event) {
         event.preventDefault();
@@ -29,7 +25,13 @@ function CreateTaskPage ( {setTaskStorage} ) {
                 [nameCategory] : newTasks
             }
         } )
+        navigate(-1, {replace : true})
     }
+
+    const goBack = ()=>{
+        navigate(-1, {replace : true})
+    }
+
     return(
         <div className="CreateTask">
             <h2 className="CreateTask__h2">Добавить задачу в категорию: "{nameCategory}"</h2>
@@ -59,7 +61,7 @@ function CreateTaskPage ( {setTaskStorage} ) {
                 </label>
 
                 <div className="CreateTask__btns">
-                    <button type="button" className="CreateTask__btns-goBack">Отмена</button>
+                    <button type="button" className="CreateTask__btns-goBack" onClick={goBack}>Отмена</button>
                     <button type="submit" className="CreateTask__btns-submit">Сохранить</button>
                 </div>
             </form>

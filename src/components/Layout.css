@@ -1,4 +1,17 @@
 .childContainer{
-    padding-top: 80px;
+    padding-top: 75px;
     margin-left: 10%;
+    height: 100%;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: thin;
+    scrollbar-color:#FEE600 #fff ;
+}
+.childContainer::-webkit-scrollbar {
+    width: 2px;
+}
+
+.childContainer::-webkit-scrollbar-thumb {
+    background-color: #FEE600;
+    border-radius: 4px;
 }

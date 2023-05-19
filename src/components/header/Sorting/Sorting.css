@@ -1,0 +1,19 @@
+.sorting{
+    line-height: 30px;
+    display: flex;
+    text-align:start ;
+    justify-content: space-between;
+}
+.sorting__container{
+    width: 100%;
+}
+.sorting__select{
+    border: 1px solid #FEE600;
+    border-radius: 6px;
+    width: 95%;
+    height: 40%;
+    font-size: 13px;
+}
+.sorting__select:focus{
+    outline: 1px solid #FEE600;
+}

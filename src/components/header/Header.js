@@ -1,7 +1,10 @@
 // import { useLocation } from 'react-router-dom'
 import { useLocation, useNavigate } from 'react-router-dom'
+import Mapping from './Mapping/Mapping'
+import Sorting from './Sorting/Sorting'
 import './Header.css'
-function Header() {
+
+function Header( {mapping, sort} ) {
     const location = useLocation()
     const navigate = useNavigate()
 
@@ -11,26 +14,9 @@ function Header() {
 
     return (
         <header className='header'>
-
-            <div className="header__mapping">
-                <span className="header__mapping__title">Вид: </span>
-                <button className="header__mapping__list">Список</button>
-                <button className="header__mapping__tile">Плитка</button>
-            </div>
-
-            <div className="sorting">
-                <span>Сортировать: </span>
-                <select name="">
-                    <option value="all">Все</option>
-                    <option value="NotFulfilled">Сначало не выполненные</option>
-                </select>
-            </div>
-
-            {
-                location.pathname.endsWith('/createTask')
-                ? null
-                : <button className='header__btnCreateTask' onClick={createTask}>Добавить задачу</button>
-            }
+            <Mapping mapping={mapping}/>
+            <Sorting sort={sort}/>
+            <button className='header__btnCreateTask' onClick={createTask}>Добавить задачу</button>
         </header>
     )
 }

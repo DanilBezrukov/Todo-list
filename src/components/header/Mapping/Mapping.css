@@ -1,0 +1,39 @@
+.mapping__title {
+    margin-right: 10px;
+}
+
+.mapping__btn {
+    line-height: 35px;
+    border: 1px solid #FEE600;
+    border-radius: 6px;
+    width: 100px;
+    height: 35px;
+    text-indent: 35px;
+    margin-right: 5px;
+    position: relative;
+}
+
+.mapping__btn:nth-child(2):before {
+    content: "";
+    background: url(../../../../public/img/listBtn.svg) no-repeat;
+    display: block;
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    top: calc(50% - 7px);
+    left: 15px;
+}
+
+.mapping__btn:nth-child(3):before {
+    content: "";
+    background: url(../../../../public/img/tileBtn.svg) no-repeat;
+    display: block;
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    top: calc(50% - 7px);
+    left: 15px;
+}
+.mapping__btn_activ{
+background-color: #FEE600;
+}

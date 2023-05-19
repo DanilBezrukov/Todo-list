@@ -1,18 +1,17 @@
-import { Link, useMatch, useNavigate, useLocation } from "react-router-dom";
+import { Link, useMatch } from "react-router-dom";
 import './CustomLink.css'
+// import { useEffect } from "react";
 
 function CustomLink( { children, to, category, setCategory } ) {
-    const navigate = useNavigate()
-    const location = useLocation()
-    const match = useMatch( {
-        path: to,
-        end: to.length === 1
-    } )
+    const match = useMatch(to)
     const myClass =  match? "containerLink__a active" : "containerLink__a"
     const removeCustomLink = () => {
         setCategory(link => link.filter(elem => elem !== category))
-        if(location.state === category) navigate("/PersonalTasks", {state : "Личные"})
     }
+    // useEffect( ()=>{
+    //     console.log("Добавлен > ", category)
+    //     return () => console.log("Удален!!! > ", category)
+    // },[] )
     
     function BtnRemoveCustomLink() {
         if (to === "PersonalTasks") return null
@@ -21,6 +20,8 @@ function CustomLink( { children, to, category, setCategory } ) {
             <button className="containerLink__btn" onClick={removeCustomLink}>&#9747;</button>
         )
     }
+
+
     return (
         <div className="containerLink">
             <BtnRemoveCustomLink />

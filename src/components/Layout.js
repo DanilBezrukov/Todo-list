@@ -2,12 +2,11 @@ import { Outlet } from "react-router-dom";
 import NavBar from "./NavBar/NavBar";
 import Header from "./header/Header";
 import "./Layout.css"
-function Layout( {category, setCategory, taskStorage} ) {
-    console.log("taskStorage", taskStorage)
+function Layout( {category, setCategory, mapping, sort } ) {
     return (
         <>
             <NavBar category={category} setCategory={setCategory}/>
-            <Header/>
+            <Header mapping={mapping} sort={sort}/>
 
             <div className="childContainer">
                 <Outlet />
