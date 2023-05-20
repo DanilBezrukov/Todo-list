@@ -12,7 +12,6 @@ function MyRoutes() {
     const [sortCompleted, setSortCompleted] = useState(localStorage.getItem("sortCompleted") ?? "NotFulfilled")
 
     useEffect(() => {
-        console.log("Рендор")
         localStorage.setItem("category", JSON.stringify(category));
         localStorage.setItem("taskStorage", JSON.stringify(taskStorage));
         localStorage.setItem("mappingFlag", JSON.stringify(mappingFlag));
@@ -28,6 +27,7 @@ function MyRoutes() {
                     setCategory={setCategory}
                     mapping={[mappingFlag, setMappingFlag]}
                     sort={[sortDate, setSortDate, sortCompleted, setSortCompleted]}
+                    setTaskStorage={setTaskStorage}
                 />
             }>
                 <Route path="PersonalTasks"
