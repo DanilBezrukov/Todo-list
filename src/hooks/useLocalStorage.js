@@ -21,6 +21,7 @@ export function useLocalStorage(key, initialValue) {
                 ? arg(value)
                 : arg
             setValue(checkArg)
+            localStorage.setItem(key, JSON.stringify(checkArg));
         } catch(error) {
             console.error("useLocalStorage > ", error)
         }

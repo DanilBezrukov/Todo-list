@@ -37,12 +37,12 @@ function BtnAddCategory( {setCategory} ){
 
     const inputAddCategory = (
         <div className='inputAddCategory'>
-                <input type="text" placeholder='Категория...' className='inputAddCategory__input' ref={myInput}/>
-                <div className='inputAddCategory__btn'>
-                    <button onClick={flagChange}>&#9747;</button>
-                    <button onClick={getInputValue}>&#10003;</button>
-                </div>
+            <input type="text" placeholder='Категория...' className='inputAddCategory__input' autoFocus ref={myInput} />
+            <div className='inputAddCategory__btn'>
+                <button onClick={flagChange}>&#9747;</button>
+                <button onClick={getInputValue}>&#10003;</button>
             </div>
+        </div>
     )
 
         
@@ -50,7 +50,6 @@ function BtnAddCategory( {setCategory} ){
     useEffect( ()=> {
         if(myInput.current){
             document.addEventListener('keyup', sendByEnter);
-            myInput.current?.focus()
         }else{
             document.removeEventListener('keyup', sendByEnter)
         }

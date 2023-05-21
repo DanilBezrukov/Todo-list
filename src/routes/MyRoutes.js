@@ -2,22 +2,11 @@ import { Routes, Route, Navigate } from "react-router-dom"
 import { Layout } from '../components/Layout';
 import { TodoPage } from "../pages/TodoPage/TodoPage";
 import { CreateTaskPage } from "../pages/CreateTaskPage/CreateTaskPage";
-import { useEffect, useState } from "react";
+import { useLocalStorage } from "../hooks/useLocalStorage";
 
 function MyRoutes() {
-    const [category, setCategory] = useState(JSON.parse(localStorage.getItem("category")) ?? [])
-    const [taskStorage, setTaskStorage] = useState(JSON.parse(localStorage.getItem("taskStorage")) ?? {})
-    const [mappingFlag, setMappingFlag] = useState(JSON.parse(localStorage.getItem("mappingFlag")) ?? true)
-    const [sortDate, setSortDate] = useState(localStorage.getItem("sortDate") ?? "new")
-    const [sortCompleted, setSortCompleted] = useState(localStorage.getItem("sortCompleted") ?? "NotFulfilled")
-
-    useEffect(() => {
-        localStorage.setItem("category", JSON.stringify(category));
-        localStorage.setItem("taskStorage", JSON.stringify(taskStorage));
-        localStorage.setItem("mappingFlag", JSON.stringify(mappingFlag));
-        localStorage.setItem("sortDate", sortDate);
-        localStorage.setItem("sortCompleted", sortCompleted);
-    }, [category, taskStorage, mappingFlag, sortDate, sortCompleted])
+    const [category, setCategory] = useLocalStorage("category", [])
+    const [taskStorage, setTaskStorage] = useLocalStorage("taskStorage", {})
 
     return (
         <Routes>
@@ -25,8 +14,7 @@ function MyRoutes() {
                 <Layout
                     category={category}
                     setCategory={setCategory}
-                    mapping={[mappingFlag, setMappingFlag]}
-                    sort={[sortDate, setSortDate, sortCompleted, setSortCompleted]}
+                    taskStorage={taskStorage}
                     setTaskStorage={setTaskStorage}
                 />
             }>

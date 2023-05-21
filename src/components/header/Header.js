@@ -4,7 +4,7 @@ import { Mapping } from './Mapping/Mapping'
 import { Sorting } from './Sorting/Sorting'
 import './Header.css'
 
-function Header( {mapping, sort} ) {
+function Header( {sort} ) {
     const location = useLocation()
     const navigate = useNavigate()
 
@@ -14,8 +14,8 @@ function Header( {mapping, sort} ) {
 
     return (
         <header className='header'>
-            <Mapping mapping={mapping}/>
-            <Sorting sort={sort}/>
+            <Mapping/>
+            <Sorting/>
             <button className='header__btnCreateTask' onClick={createTask}>Добавить задачу</button>
         </header>
     )
