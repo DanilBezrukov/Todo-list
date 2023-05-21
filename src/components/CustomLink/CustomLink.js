@@ -11,19 +11,11 @@ function CustomLink( { children, to, category, setCategory, setTaskStorage } ) {
             return {...state}
         })
     }
-    
-    function BtnRemoveCustomLink() {
-        if (to === "PersonalTasks") return null
-
-        return (
-            <button className="containerLink__btn" onClick={removeCustomLink}>&#9747;</button>
-        )
-    }
-
 
     return (
         <div className="containerLink">
-            <BtnRemoveCustomLink />
+            {to !== "PersonalTasks" && <button className="containerLink__btn" onClick={removeCustomLink}>&#9747;</button>}
+            
             <Link
                 to={to}
                 className={myClass}
@@ -36,4 +28,4 @@ function CustomLink( { children, to, category, setCategory, setTaskStorage } ) {
 
     )
 }
-export default CustomLink
+export { CustomLink }

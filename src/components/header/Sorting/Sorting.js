@@ -33,4 +33,4 @@ function Sorting( {sort} ) {
         </div>
     )
 }
-export default Sorting
+export { Sorting }

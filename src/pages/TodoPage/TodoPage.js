@@ -1,5 +1,5 @@
 
-import Task from "../../components/Task/Task"
+import { Task } from "../../components/Task/Task"
 import "./TodoPage.css"
 function TodoPage({ nameCategory, taskStorage,  setTaskStorage }) {
 
@@ -23,4 +23,4 @@ function TodoPage({ nameCategory, taskStorage,  setTaskStorage }) {
         </>
     )
 }
-export default TodoPage
+export { TodoPage }

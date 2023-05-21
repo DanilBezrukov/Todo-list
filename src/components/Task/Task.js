@@ -32,4 +32,4 @@ function Task ( { data, index, nameCategory, setTaskStorage } ){
         </div>
     )
 }
-export default Task
+export { Task }

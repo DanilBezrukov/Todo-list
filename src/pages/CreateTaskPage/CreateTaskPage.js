@@ -69,4 +69,4 @@ function CreateTaskPage ( {setTaskStorage} ) {
         </div>
     )
 }
-export default CreateTaskPage
+export { CreateTaskPage }

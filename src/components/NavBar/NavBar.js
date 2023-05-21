@@ -1,5 +1,5 @@
-import BtnAddCategory from "../BtnAddCategory/BtnAddCategory";
-import CustomLink from "../CustomLink/CustomLink";
+import { BtnAddCategory } from "../BtnAddCategory/BtnAddCategory";
+import { CustomLink } from "../CustomLink/CustomLink";
 import './NavBar.css'
 
 function NavBar( {category, setCategory, setTaskStorage} ) {
@@ -31,4 +31,4 @@ function NavBar( {category, setCategory, setTaskStorage} ) {
         </nav>
     )
 }
-export default NavBar
+export { NavBar }

@@ -1,5 +1,3 @@
-
-// import { useState } from "react"
 import { useCallback, useEffect, useRef, useState } from 'react'
 import './BtnAddCategory.css'
 
@@ -64,4 +62,4 @@ function BtnAddCategory( {setCategory} ){
         </div>
     )
 }
-export default BtnAddCategory
+export { BtnAddCategory }

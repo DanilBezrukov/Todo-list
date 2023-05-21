@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
-import NavBar from "./NavBar/NavBar";
-import Header from "./header/Header";
+import { NavBar } from "./NavBar/NavBar";
+import { Header } from "./header/Header";
 import "./Layout.css"
 function Layout( {category, setCategory, mapping, sort, setTaskStorage } ) {
     return (
@@ -14,4 +14,4 @@ function Layout( {category, setCategory, mapping, sort, setTaskStorage } ) {
         </>
     )
 }
-export default Layout
+export { Layout }

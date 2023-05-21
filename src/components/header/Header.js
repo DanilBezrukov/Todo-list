@@ -1,7 +1,7 @@
 // import { useLocation } from 'react-router-dom'
 import { useLocation, useNavigate } from 'react-router-dom'
-import Mapping from './Mapping/Mapping'
-import Sorting from './Sorting/Sorting'
+import { Mapping } from './Mapping/Mapping'
+import { Sorting } from './Sorting/Sorting'
 import './Header.css'
 
 function Header( {mapping, sort} ) {
@@ -20,4 +20,4 @@ function Header( {mapping, sort} ) {
         </header>
     )
 }
-export default Header
+export { Header }

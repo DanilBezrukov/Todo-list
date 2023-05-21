@@ -1,7 +1,7 @@
 import { Routes, Route, Navigate } from "react-router-dom"
-import Layout from '../components/Layout';
-import TodoPage from "../pages/TodoPage/TodoPage";
-import CreateTaskPage from "../pages/CreateTaskPage/CreateTaskPage";
+import { Layout } from '../components/Layout';
+import { TodoPage } from "../pages/TodoPage/TodoPage";
+import { CreateTaskPage } from "../pages/CreateTaskPage/CreateTaskPage";
 import { useEffect, useState } from "react";
 
 function MyRoutes() {
@@ -57,4 +57,4 @@ function MyRoutes() {
         </Routes>
     )
 }
-export default MyRoutes
+export { MyRoutes }

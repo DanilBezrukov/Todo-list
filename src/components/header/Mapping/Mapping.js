@@ -18,4 +18,4 @@ function Mapping( {mapping} ) {
         </div>
     )
 }
-export default Mapping
+export { Mapping }
