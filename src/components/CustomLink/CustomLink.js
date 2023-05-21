@@ -1,13 +1,13 @@
 import { Link, useMatch } from "react-router-dom";
 import './CustomLink.css'
 
-function CustomLink( { children, to, category, setCategory, setTaskStorage } ) {
+function CustomLink( { children, to, setCategory, setTaskStorage } ) {
     const match = useMatch(to)
     const myClass =  match? "containerLink__a active" : "containerLink__a"
     const removeCustomLink = () => {
-        setCategory(link => link.filter(elem => elem !== category))
+        setCategory(link => link.filter(elem => elem !== children))
         setTaskStorage(state => {
-            delete state[category]
+            delete state[children]
             return {...state}
         })
     }
@@ -19,7 +19,7 @@ function CustomLink( { children, to, category, setCategory, setTaskStorage } ) {
             <Link
                 to={to}
                 className={myClass}
-                state={category}
+                state={children}
             >
                 {children}
 
