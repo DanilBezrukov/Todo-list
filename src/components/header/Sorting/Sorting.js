@@ -1,6 +1,6 @@
 import { useLocalStorage } from "../../../hooks/useLocalStorage"
 import "./Sorting.css"
-function Sorting( {sort} ) {
+function Sorting() {
     const [sortDate, setSortDate] = useLocalStorage("sortDate", "new")
     const [sortCompleted, setSortCompleted] = useLocalStorage("sortCompleted", "NotFulfilled")
     return (
