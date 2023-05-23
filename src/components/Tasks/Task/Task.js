@@ -1,11 +1,11 @@
 import "./Task.css"
 
-function Task ( { data, index, nameCategory, setTaskStorage } ){
+function Task ( { data, index, activeCategory, setTasks } ){
     const {taskTitle, taskText, date, flag} = data
     // console.log("data > ", taskTitle, taskText, date, flag)
     function taskStatusChange () {
-        setTaskStorage(data =>{
-            data[nameCategory][index].flag = !flag
+        setTasks(data =>{
+            data[activeCategory][index].flag = !flag
             return {...data}
         })
     }

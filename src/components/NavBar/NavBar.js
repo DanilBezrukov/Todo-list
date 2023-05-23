@@ -1,33 +1,33 @@
+import { CategoryButton } from "../CategoryButton/CategoryButton";
 import { BtnAddCategory } from "../BtnAddCategory/BtnAddCategory";
-import { CustomLink } from "../CustomLink/CustomLink";
+import { useContext } from "react";
+import { TaskContext } from "../../contexts/TaskProvider";
 import './NavBar.css'
 
-function NavBar({ category, setCategory, setTaskStorage }) {
+function NavBar( { activeCategory, setActiveCategory } ) {
+    const { tasks, setTasks } = useContext(TaskContext)
+    const categories = Object.keys(tasks)
     return (
         <nav className="NavBar">
             <h2 className="NavBar__h2">Категория</h2>
-
             <div className="NavBar__container">
-                <CustomLink to="PersonalTasks" setTaskStorage={setTaskStorage}>Личные</CustomLink>
                 {
-                    category.map((elem, i) => {
-                        return (
-                                <CustomLink
-                                    to={`CustomCategory${i + 1}`}
-                                    key={`CustomCategory${i + 1}`}
-                                    setCategory={setCategory}
-                                    setTaskStorage={setTaskStorage}
-                                >
-                                    {elem}
-                                </CustomLink>
-
-                        )
-                    })
+                    categories?.map(elem => (
+                        <CategoryButton
+                            key={elem}
+                            setTasks={setTasks}
+                            activeCategory={activeCategory}
+                            setActiveCategory={setActiveCategory}
+                        >
+                            {elem}
+                        </CategoryButton>
+                    )
+                    )
                 }
             </div>
 
 
-            <BtnAddCategory setCategory={setCategory} />
+            <BtnAddCategory setTasks={setTasks} />
         </nav>
     )
 }

@@ -1,4 +1,4 @@
-.header{
+.header {
     background-color: white;
     display: grid;
     grid-template-columns: repeat(3, 30%);
@@ -9,17 +9,21 @@
     width: 100%;
 }
 
-.header__btnCreateTask{
-background-color: #93EC91;
-margin: 12.5px auto 0 auto;
-height: 50px;
-width: 80%;
-border-radius: 6px;
-font-size: 18px;
-font-weight: 500;
-position: relative;
+.header__Link {
+    display: inline;
+    background-color: #93EC91;
+    margin: 12.5px auto 0 auto;
+    height: 50px;
+    line-height: 50px;
+    width: 80%;
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: 500;
+    color: black;
+    position: relative;
 }
-.header__btnCreateTask::before{
+
+.header__Link::before {
     content: "+";
     position: absolute;
     left: 18%;

@@ -1,7 +1,12 @@
 import { useLocation, useNavigate } from "react-router-dom"
+import { useContext } from "react"
+import { TaskContext } from "../../contexts/TaskProvider"
 import "./CreateTaskPage.css"
 
-function CreateTaskPage ( {setTaskStorage} ) {
+function CreateTaskPage () {
+    const { tasks, setTasks } = useContext(TaskContext)
+    console.log(tasks)
+    console.log(setTasks)
     const location = useLocation()
     const navigate = useNavigate()
     const nameCategory = location.state ?? "Личные"
@@ -9,6 +14,7 @@ function CreateTaskPage ( {setTaskStorage} ) {
     function getFormsData(event) {
         event.preventDefault();
         const formData = new FormData(event.target);
+
         const data = {
             taskTitle: formData.get("taskTitle"),
             taskText: formData.get("taskText"),
@@ -16,7 +22,7 @@ function CreateTaskPage ( {setTaskStorage} ) {
             flag: false
         }
         
-        setTaskStorage( state => {
+        setTasks( state => {
             const tasks = state[nameCategory] || []
             const newTasks = [...tasks, data]
             
@@ -25,6 +31,7 @@ function CreateTaskPage ( {setTaskStorage} ) {
                 [nameCategory] : newTasks
             }
         } )
+
         navigate(-1, {replace : true})
     }
 

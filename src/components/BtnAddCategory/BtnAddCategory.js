@@ -1,31 +1,34 @@
 import { useState } from 'react'
 import './BtnAddCategory.css'
 
-function BtnAddCategory( {setCategory} ){
+function BtnAddCategory({ setTasks }) {
 
     const [categoryAddFlag, setCategoryAddFlag] = useState(false)
 
-    function flagChange (){
+    function flagChange() {
         setCategoryAddFlag(state => !state)
     }
 
-    const getInputValue = function (event){
+    const getInputValue = function (event) {
         event.preventDefault();
         const value = new FormData(event.target).get("nameCategory").trim()
-        if(value.length < 3) return
+        if (value.length < 3) return
         const nameCategory = value[0].toUpperCase() + value.slice(1)
 
-        setCategory( state => {
-            if(state.includes(nameCategory)) return state
-            return(
-                [...state, nameCategory]
+        setTasks(tasks => {
+            if (Object.keys(tasks).includes(nameCategory)) return tasks
+            return (
+                {
+                    ...tasks,
+                    [nameCategory]: []
+                }
             )
-        } )
+        })
         setCategoryAddFlag(state => !state)
     }
-    
+
     const BtnAddCategory = (
-        <button className='BtnAddCategory' onClick={flagChange} ><span>+</span> <br/>Добавить категорию</button>
+        <button className='BtnAddCategory' onClick={flagChange} ><span>+</span> <br />Добавить категорию</button>
     )
 
     const inputAddCategory = (
@@ -38,9 +41,9 @@ function BtnAddCategory( {setCategory} ){
         </form>
     )
 
-    return(
+    return (
         <div>
-            {categoryAddFlag? inputAddCategory : BtnAddCategory}
+            {categoryAddFlag ? inputAddCategory : BtnAddCategory}
         </div>
     )
 }

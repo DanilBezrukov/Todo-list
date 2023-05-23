@@ -1,9 +1,9 @@
-.containerLink {
+.CategoryButton {
     width: 80%;
     margin: 0 auto 20% auto;
     position: relative;
 }
-.containerLink__btn{
+.CategoryButton__removeBtn{
     position: absolute;
     top: 5px;
     right: 10px;
@@ -12,11 +12,11 @@
     transition: all .3s;
     
 }
-.containerLink__btn:hover{
+.CategoryButton__removeBtn:hover{
     color: red;
 }
-.containerLink__a {
-    display: block;
+.CategoryButton__btn {
+    width: 100%;
     font-size: 18px;
     line-height: 100px;
     color: black;
