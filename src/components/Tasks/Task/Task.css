@@ -1,0 +1,135 @@
+.Task {
+    display: flex;
+    flex-direction: column;
+    border-radius: 6px;
+    box-shadow: 0px 2px 12px rgba(0, 0, 0, .2);
+    padding: 10px;
+    margin-bottom: 10px;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+
+.Task__informationAbout {
+    display: flex;
+    align-items: center;
+    padding-bottom: 15px;
+}
+
+.Task__informationAbout__titel {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.Task__informationAbout__date {
+    white-space: nowrap;
+    margin-right: 10px;
+    font-weight: bold;
+    opacity: .5;
+}
+
+
+/*                    */
+.checkbox.style-g {
+    display: inline-block;
+    position: relative;
+    padding-right: 30px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin-left: auto;
+}
+
+.checkbox.style-g input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkbox.style-g input:checked~.checkbox__checkmark {
+    background-color: #fff;
+}
+
+.checkbox.style-g input:checked~.checkbox__checkmark:after {
+    opacity: 1;
+    left: 8px;
+}
+
+.checkbox.style-g input:checked~.checkbox__body {
+    font-weight: bold;
+    color: #93EC91;
+}
+
+.checkbox.style-g:hover input~.checkbox__checkmark {
+    background-color: #eee;
+}
+
+.checkbox.style-g:hover input:checked~.checkbox__checkmark {
+    background-color: #eee;
+}
+
+.checkbox.style-g .checkbox__checkmark {
+    position: absolute;
+    top: 1px;
+    right: 0;
+    height: 22px;
+    width: 22px;
+    background-color: #eee;
+    transition: background-color 0.25s ease;
+    border-radius: 4px;
+}
+
+.checkbox.style-g .checkbox__checkmark:after {
+    content: "";
+    position: absolute;
+    left: -20px;
+    top: -8px;
+    width: 15px;
+    height: 25px;
+    border: solid #93EC91;
+    border-width: 0 4px 4px 0;
+    transform: rotate(45deg);
+    opacity: 0;
+    transition: opacity 0.25s ease, left 0.25s ease;
+}
+
+.checkbox.style-g .checkbox__body {
+    color: #333;
+    line-height: 1.4;
+    font-size: 16px;
+    transition: font-weight 0.25s ease;
+}
+/*                    */
+
+
+.Task__text {
+    width: 100%;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    margin-bottom: 10px;
+}
+
+.Task__btnContainer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto;
+}
+
+.Task__btnRemove,
+.Task__btnEdit {
+    line-height: 33px;
+    margin-top: 10px;
+    border-radius: 6px;
+    background-color: #F79999;
+}
+.Task__btnEdit{
+    background-color: #93EC91;
+}

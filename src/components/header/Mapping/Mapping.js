@@ -1,7 +1,7 @@
 import { useLocalStorage } from "../../../hooks/useLocalStorage"
 import "./Mapping.css"
-function Mapping() {
-    const [mappingFlag, setMappingFlag] = useLocalStorage("mappingFlag", true)
+function Mapping( {mapping} ) {
+    const [mappingFlag, setMappingFlag] = mapping
     return (
         <div className="mapping">
             <span className="mapping__title">Вид: </span>

@@ -1,5 +1,5 @@
 .TasksContainer{
-    padding-top: 75px;
+    padding-top: 80px;
     margin-left: 10%;
     height: 100%;
     overflow-y: scroll;
@@ -7,12 +7,29 @@
     scrollbar-width: thin;
     scrollbar-color:#FEE600 #fff ;
 }
+
 .TasksContainer::-webkit-scrollbar {
     width: 2px;
 }
 .TasksContainer::-webkit-scrollbar-thumb {
     background-color: #FEE600;
     border-radius: 4px;
+}
+.taskDisplay-list{
+    grid-template-columns:  calc(96% + 20px);
+    display: grid;
+    gap: 10px;
+}
+.taskDisplay-list button{
+    width: 10%;
+}
+.taskDisplay-tile{
+    grid-template-columns: repeat(3, 32%);
+    display: grid;
+    gap: 10px;
+}
+.taskDisplay-tile button{
+    width: 30%;
 }
 .emptyPages{
     background-color: rgba(120, 120, 120, .2);;

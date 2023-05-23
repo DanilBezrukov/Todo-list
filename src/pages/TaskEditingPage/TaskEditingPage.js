@@ -1,9 +1,9 @@
 import { useLocation, useNavigate } from "react-router-dom"
 import { useContext } from "react"
 import { TaskContext } from "../../contexts/TaskProvider"
-import "./CreateTaskPage.css"
+import "./TaskEditingPage.css"
 
-function CreateTaskPage () {
+function TaskEditingPage () {
     const { setTasks } = useContext(TaskContext)
     const location = useLocation()
     const navigate = useNavigate()
@@ -39,7 +39,7 @@ function CreateTaskPage () {
 
     return(
         <div className="CreateTask">
-            <h2 className="CreateTask__h2">Добавить задачу в категорию: "{nameCategory}"</h2>
+            <h2 className="CreateTask__h2">Редактировать задачу: "{nameCategory}"</h2>
             
             <form action="" onSubmit={getFormsData}>
                 <label className="CreateTask__taskTitle">
@@ -74,4 +74,4 @@ function CreateTaskPage () {
         </div>
     )
 }
-export { CreateTaskPage }
+export { TaskEditingPage }
