@@ -5,17 +5,9 @@ import "./Tasks.css"
 
 function Tasks({ activeCategory, mappingFlag }) {
     const { tasks, setTasks } = useContext(TaskContext)
-    // const [sortDate, sortCompleted] = sortingResult
-
-    
-    // const dateSortingMethod = sortDate === "new"?sortAscending:sortDescending
     const selectedСategory = [ ...tasks[activeCategory] ]
-    // const testARR = selectedСategory.sort(dateSortingMethod)
-    // console.log("testARR", testARR)
-    // console.log(selectedСategory === tasks[activeCategory])
-
-
     const taskDisplay = mappingFlag ? "list" : "tile"
+    
     return (
         <>
             <div className="TasksContainer">

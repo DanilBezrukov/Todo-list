@@ -4,10 +4,11 @@ import "./Task.css"
 function Task({ data, index, activeCategory, setTasks }) {
     const { taskTitle, taskText, date, flag } = data
     const navigate = useNavigate()
-    function taskStatusChange(event) {
-        setTasks(data => {
-            data[activeCategory][index].flag = !flag
-            return { ...data }
+    function taskStatusChange() {
+        setTasks(tasks => {
+            const newTasks = {...tasks}
+            newTasks[activeCategory][index].flag = !flag
+            return newTasks
         })
     }
     
@@ -41,7 +42,7 @@ function Task({ data, index, activeCategory, setTasks }) {
             <p className="Task__text">{taskText}</p>
             <div className="Task__btnContainer">
                 <button className="Task__btnRemove" onClick={removeTask}>Удалить</button>
-                <button className="Task__btnEdit" onClick={ () => { navigate("/TaskEditingPage", {state : taskTitle}) } }>Редактировать</button>
+                <button className="Task__btnEdit" onClick={ () => { navigate("/TaskEditingPage", {state : {index, activeCategory} } ) } }>Редактировать</button>
             </div>
         </div>
 

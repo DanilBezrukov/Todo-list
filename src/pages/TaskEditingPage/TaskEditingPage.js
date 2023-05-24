@@ -1,45 +1,30 @@
 import { useLocation, useNavigate } from "react-router-dom"
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import { TaskContext } from "../../contexts/TaskProvider"
-import "./TaskEditingPage.css"
 
 function TaskEditingPage () {
-    const { setTasks } = useContext(TaskContext)
+    const { tasks, setTasks } = useContext(TaskContext)
     const location = useLocation()
     const navigate = useNavigate()
-    const nameCategory = location.state ?? "Личные"
+    const {index, activeCategory} = location.state
+    const {taskTitle, taskText} = tasks[activeCategory][index]
+    const [inputValue, setInputValue] = useState( [taskTitle, taskText] )
+    const [titleValue, textValue] = inputValue
 
     function getFormsData(event) {
         event.preventDefault();
-        const formData = new FormData(event.target);
-
-        const data = {
-            taskTitle: formData.get("taskTitle"),
-            taskText: formData.get("taskText"),
-            date: new Date(),
-            flag: false
-        }
-        
         setTasks( state => {
-            const tasks = state[nameCategory] || []
-            const newTasks = [...tasks, data]
-            
-            return {
-                ...state,
-                [nameCategory] : newTasks
-            }
+            const newState = {...state}
+            newState[activeCategory][index].taskTitle = titleValue
+            newState[activeCategory][index].taskText = textValue
+            return newState
         } )
-
-        navigate(-1, {replace : true})
-    }
-
-    const goBack = ()=>{
         navigate(-1, {replace : true})
     }
 
     return(
         <div className="CreateTask">
-            <h2 className="CreateTask__h2">Редактировать задачу: "{nameCategory}"</h2>
+            <h2 className="CreateTask__h2">Редактировать задачу</h2>
             
             <form action="" onSubmit={getFormsData}>
                 <label className="CreateTask__taskTitle">
@@ -47,8 +32,9 @@ function TaskEditingPage () {
                     <input 
                     type="text" 
                     name="taskTitle"
-                    placeholder="Введите заголовок задачи..."
                     className="CreateTask__taskTitle-input"
+                    value={inputValue[0]}
+                    onChange={ e => setInputValue( [e.target.value, textValue] ) }
                     required 
                     />
                 </label>
@@ -57,16 +43,17 @@ function TaskEditingPage () {
                     Текст задачи:
                     <textarea 
                     name="taskText" 
-                    placeholder="Опишите вашу задачу..." 
                     className="CreateTask__taskTitle-textarea"
                     rows="4"
+                    value={inputValue[1]}
+                    onChange={ e => setInputValue( [titleValue, e.target.value] ) }
                     required
                     >
                     </textarea>
                 </label>
 
                 <div className="CreateTask__btns">
-                    <button type="button" className="CreateTask__btns-goBack" onClick={goBack}>Отмена</button>
+                    <button type="button" className="CreateTask__btns-goBack" onClick={ () => navigate(-1, {replace : true}) }>Отмена</button>
                     <button type="submit" className="CreateTask__btns-submit">Сохранить</button>
                 </div>
             </form>

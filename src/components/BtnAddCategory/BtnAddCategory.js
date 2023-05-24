@@ -16,7 +16,9 @@ function BtnAddCategory({ setTasks }) {
         const nameCategory = value[0].toUpperCase() + value.slice(1)
 
         setTasks(tasks => {
+            
             if (Object.keys(tasks).includes(nameCategory)) return tasks
+
             return (
                 {
                     ...tasks,

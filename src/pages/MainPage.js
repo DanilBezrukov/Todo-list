@@ -6,8 +6,6 @@ import { Tasks } from "../components/Tasks/Tasks"
 function MainPage() {
     const [activeCategory, setActiveCategory] = useLocalStorage("activeCategory", "Личные")
     const [mappingFlag, setMappingFlag] = useLocalStorage("mappingFlag", true)
-    
-
     return (
         <>
             <NavBar activeCategory={activeCategory} setActiveCategory={setActiveCategory} />

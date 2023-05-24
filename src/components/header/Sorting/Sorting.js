@@ -7,12 +7,8 @@ function Sorting({ activeCategory }) {
     const [sortCompleted, setSortCompleted] = useLocalStorage("sortCompleted", "NotFulfilled")
     const {Tasks, setTasks } = useContext(TaskContext)
 
-    const sortAscending = (a, b) => {
-        return new Date(b.date) - new Date(a.date);
-    }
-    const sortDescending = (a, b) => {
-        return new Date(a.date) - new Date(b.date);
-    }
+    const sortAscending = (a, b) => new Date(b.date) - new Date(a.date);
+    const sortDescending = (a, b) => new Date(a.date) - new Date(b.date);
     const dateSortingMethod = sortDate === "new" ? sortAscending : sortDescending
 
     const compareAscending = (a, b) => {

@@ -1,4 +1,3 @@
-import { useLocalStorage } from "../../../hooks/useLocalStorage"
 import "./Mapping.css"
 function Mapping( {mapping} ) {
     const [mappingFlag, setMappingFlag] = mapping
